@@ -1,6 +1,13 @@
 <?php
 
 class User_model extends CI_Model {
+	
+    function __construct()
+    {
+        // Call the Model constructor
+        parent::__construct();
+    }
+
 	function validate_user() {
 		// Constructing the query
 		$login_credentials = array(
