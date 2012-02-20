@@ -25,6 +25,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemDetails` (
   `name` TEXT NOT NULL ,
   `description` TEXT NOT NULL ,
   `cost` FLOAT NOT NULL ,
+  `veg` INT NOT NULL,
   `cookingTime` INT NOT NULL ,
   `calorieCount` FLOAT NOT NULL ,
   `categoryId` INT NOT NULL ,
@@ -145,7 +146,7 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `ifoodie`.`queue` (
   `queueId` INT NOT NULL AUTO_INCREMENT ,
   `itemOrderId` INT NOT NULL ,
-  `eta` TIME NULL ,
+  `eta` INT NULL ,
   PRIMARY KEY (`queueId`) ,
   INDEX `fk_queue_itemOrder1` (`itemOrderId` ASC) ,
   CONSTRAINT `fk_queue_itemOrder1`
