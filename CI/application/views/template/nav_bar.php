@@ -14,7 +14,7 @@
 							<a href="#">Settings</a>
 						</li>
 						<li>
-							<a href="logout" style="margin-left: 670px;">Logout</a>
+							<a href="<?php echo base_url(); ?>index.php/start/logout" style="margin-left: 670px;">Logout</a>
 						</li>
 					</ul>
 				</div>

@@ -8,7 +8,7 @@
 	<div class="span4 offset1">
 		<?php
 			$attributes_form = array('class' => 'well form-search', 'id' => 'login_form');
-			echo form_open('dashboard/login',$attributes_form);
+			echo form_open('start/login',$attributes_form);
 			?>
 			<div id="divUserName" class="control-group">
 					<div class="controls">
