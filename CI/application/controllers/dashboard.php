@@ -1,6 +1,9 @@
 <?php
 class Dashboard extends CI_Controller {
 	function index() {
+		$data['nav_bar'] = 'template/nav_bar';
+		$data['main_content'] = 'dashboard_screen';
+		$this->load->view('template/template.php', $data);
 	}
 	
 	function login() {
