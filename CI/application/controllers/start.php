@@ -8,20 +8,31 @@ class Start extends CI_Controller {
 	}
 	
 	function login() {
-		$this->load->model('user_model');
-		$query = $this->user_model->validate_user();
+		// Form validation
+		$this->load->library('form_validation');
 		
-		if ($query)	{ // If the user is validated.
-			$session_data = array (
-				'username' => $this->input->post('username'),
-				'is_logged_in' => true
-			);
-			//	Create a session. Initialize it.
-			$this->session->set_userdata($session_data);
-			//	Display a view
-			redirect('dashboard');
-		}	else {
-			redirect('start/login');
+		// Set rules
+		$this->form_validation->set_rules('username','Username','trim|required');
+		$this->form_validation->set_rules('password','Password', 'trim|required');
+		
+		if($this->form_validation->run() == FALSE) {
+			$this->index();
+		} else {
+			$this->load->model('user_model');
+			$query = $this->user_model->validate_user();
+		
+			if ($query)	{ // If the user is validated.
+				$session_data = array (
+					'username' => $this->input->post('username'),
+					'is_logged_in' => true
+				);
+				//	Create a session. Initialize it.
+				$this->session->set_userdata($session_data);
+				//	Display a view
+				redirect('dashboard');
+			}	else {
+				redirect('start/login');
+			}
 		}
 	}
 

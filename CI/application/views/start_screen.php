@@ -7,7 +7,7 @@
 	<!-- Login mechanism goes in here -->
 	<div class="span4 offset1">
 		<?php
-			$attributes_form = array('class' => 'well form-search', 'id' => 'login_form');
+			$attributes_form = array('class' => 'well form-search', 'id' => 'login_form', 'style' => 'padding-bottom: 10px;');
 			echo form_open('start/login',$attributes_form);
 			?>
 			<div id="divUserName" class="control-group">
@@ -25,6 +25,11 @@
 						?>
 					</div>
 					<button class="btn btn-primary" type="submit" style="height: 80px; margin-left: 180px; margin-bottom: 0px; margin-top: -90px; width: 80px;">Login</button>
+				</div>
+			</div>
+			<div class="control-group error">
+				<div class="controls" style="padding-top:5px;">
+					<?php echo validation_errors('<div class="error help-inline">', '</div>'); ?>
 				</div>
 			</div>
 	</div>
