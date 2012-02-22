@@ -2,6 +2,19 @@
 	<head>
 		<link href="<?php echo base_url(); ?>resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<script type="text/javascript" src="<?php echo base_url(); ?>resources/jquery/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>resources/bootstrap/js/bootstrap.js"></script>
+		<script>
+			$(document).ready(function() {
+				/*$('.nav li').click( function() {
+					$(this).addClass('active');
+					console.log(this);
+				});
+				*/
+				$('.tabs a:last').tab('show');
+				
+				
+			});
+		</script>
 	</head>
 	<body>
 		<div class="container">
