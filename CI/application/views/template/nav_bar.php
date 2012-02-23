@@ -5,16 +5,16 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li>
-							<a href="#" style="margin-left: 10px;">Home</a>
+							<a href="<?php echo base_url(); ?>index.php/dashboard" style="margin-left: 10px;">Home</a>
 						</li>
 						<li>
-							<a href="#">Orders</a>
+							<a href="<?php echo base_url(); ?>index.php/dashboard/orders">Orders</a>
 						</li>
 						<li>
-							<a href="#">Manage</a>
+							<a href="<?php echo base_url(); ?>index.php/dashboard/manage">Manage</a>
 						</li>
 						<li>
-							<a href="#">Settings</a>
+							<a href="<?php echo base_url(); ?>index.php/dashboard/settings">Settings</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url(); ?>index.php/start/logout" style="margin-left: 594px;">Logout</a>
