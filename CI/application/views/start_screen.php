@@ -32,5 +32,8 @@
 				<?php echo validation_errors('<div class="error help-inline">', '</div>'); ?>
 			</div>
 		</div>
+		<?php
+			echo form_close();
+		?>
 	</div>
 </div>

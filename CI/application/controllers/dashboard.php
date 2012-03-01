@@ -14,9 +14,7 @@ class Dashboard extends CI_Controller {
 	}
 	
 	function index() {
-		$data['nav_bar'] = 'template/nav_bar';
-		$data['main_content'] = 'screens/dashboard_screen';
-		$this->load->view('template/template.php', $data);
+		$this->orders();
 	}
 	
 	function orders() {
@@ -25,9 +23,27 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template/template.php', $data);
 	}
 	
-	function manage() {
+	function add_category() {
 		$data['nav_bar'] = 'template/nav_bar';
-		$data['main_content'] = 'screens/manage_screen';
+		$data['main_content'] = 'screens/category_add_screen';
+		$this->load->view('template/template.php', $data);
+	}
+	
+	function remove_category() {
+		$data['nav_bar'] = 'template/nav_bar';
+		$data['main_content'] = 'screens/category_remove_screen';
+		$this->load->view('template/template.php', $data);
+	}
+	
+	function add_item() {
+		$data['nav_bar'] = 'template/nav_bar';
+		$data['main_content'] = 'screens/item_add_screen';
+		$this->load->view('template/template.php', $data);
+	}
+	
+	function remove_item() {
+		$data['nav_bar'] = 'template/nav_bar';
+		$data['main_content'] = 'screens/item_remove_screen';
 		$this->load->view('template/template.php', $data);
 	}
 	
