@@ -2,25 +2,27 @@
 class Category_model extends CI_Model {
 	function __construct()
     {
-        // Call the Model constructor
+        // Call the Model constructor.
         parent::__construct();
     }
 	
 	function add_category() {
+	// Add new category to database.
 		$category_info = array(
 			'categoryName' => $this->input->post('category_name'),
 			'priority' => $this->input->post('category_priority')
 		);
-		
+		$this->db->insert('category',$category_info);
 	}
 	
 	function check_cat_name() {
+	// Model function for validation callback for validating uniqueness.
+	// Returns FALSE if category name already exists.
 		$category_info = array(
 			'categoryName' => $this->input->post('category_name')
 		);
 		
-		$this->db->where($category_info);
-		$query = $this->db->get();
+		$query = $this->db->get_where('category', $category_info, 1,0);
 		if ($query->num_rows() > 0)
 			return FALSE;
 		else

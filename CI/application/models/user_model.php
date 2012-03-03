@@ -9,6 +9,7 @@ class User_model extends CI_Model {
     }
 
 	function validate_user() {
+	// Validate the user for login
 		// Constructing the query
 		$login_credentials = array(
 			'uname' => $this->input->post('username'),

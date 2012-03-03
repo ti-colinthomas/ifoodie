@@ -28,7 +28,7 @@ class Start extends CI_Controller {
 				);
 				//	Create a session. Initialize it.
 				$this->session->set_userdata($session_data);
-				//	Display a view
+				//	Display the dashboard view.
 				redirect('dashboard');
 			}	else {
 				redirect('start/login');
@@ -37,6 +37,7 @@ class Start extends CI_Controller {
 	}
 
 	function logout() {
+	// Destroy session and return to home page.
 		$this->session->sess_destroy();
 		$this->index();
 	}
