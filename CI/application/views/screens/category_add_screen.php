@@ -1,5 +1,5 @@
 <div class="row">
-<div class="span8 well">
+<div class="span11 well">
 	<?php
 		$attributes_form = array('id' => 'add_category_form','class' => 'form-horizontal');
 		echo form_open('category/add_category',$attributes_form);

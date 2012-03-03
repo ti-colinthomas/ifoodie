@@ -40,7 +40,16 @@ class Category extends CI_Controller {
 			$this->load->model('category_model');
 			$query = $this->category_model->add_category();
 			if ($query) {
-				$this->add_category_screen();
+				$data['alert_status'] = 'enabled';
+				$data['alert_message'] = '	<div class="span11">
+												<div class="alert alert-success">
+													<a class="close" data-dismiss="alert">×</a>
+													New category created successfully
+												</div>
+											</div>';
+				$data['nav_bar'] = 'template/nav_bar';
+				$data['main_content'] = 'screens/category_add_screen';
+				$this->load->view('template/template.php', $data);
 			}
 		}
 	}
