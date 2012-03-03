@@ -12,7 +12,8 @@ class Category_model extends CI_Model {
 			'categoryName' => $this->input->post('category_name'),
 			'priority' => $this->input->post('category_priority')
 		);
-		$this->db->insert('category',$category_info);
+		$query = $this->db->insert('category',$category_info);
+		return TRUE;
 	}
 	
 	function check_cat_name() {
@@ -23,7 +24,7 @@ class Category_model extends CI_Model {
 		);
 		
 		$query = $this->db->get_where('category', $category_info, 1,0);
-		if ($query->num_rows() > 0)
+		if ($query->num_rows()>0)
 			return FALSE;
 		else
 			return TRUE;

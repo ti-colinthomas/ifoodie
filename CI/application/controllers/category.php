@@ -39,6 +39,9 @@ class Category extends CI_Controller {
 		} else {
 			$this->load->model('category_model');
 			$query = $this->category_model->add_category();
+			if ($query) {
+				$this->add_category_screen();
+			}
 		}
 	}
 	
