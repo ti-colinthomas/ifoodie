@@ -16,12 +16,12 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<?php echo base_url(); ?>index.php/dashboard/add_category">
+									<a href="<?php echo base_url(); ?>index.php/category/add_category_screen">
 										Add Category
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url(); ?>index.php/dashboard/remove_category">
+									<a href="<?php echo base_url(); ?>index.php/category/remove_category_screen">
 										Remove Category
 									</a>
 								</li>

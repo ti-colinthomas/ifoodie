@@ -23,18 +23,6 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template/template.php', $data);
 	}
 	
-	function add_category() {
-		$data['nav_bar'] = 'template/nav_bar';
-		$data['main_content'] = 'screens/category_add_screen';
-		$this->load->view('template/template.php', $data);
-	}
-	
-	function remove_category() {
-		$data['nav_bar'] = 'template/nav_bar';
-		$data['main_content'] = 'screens/category_remove_screen';
-		$this->load->view('template/template.php', $data);
-	}
-	
 	function add_item() {
 		$data['nav_bar'] = 'template/nav_bar';
 		$data['main_content'] = 'screens/item_add_screen';

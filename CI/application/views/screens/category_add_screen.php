@@ -1,10 +1,10 @@
 <div class="row">
-<div class="span8">
+<div class="span8 well">
 	<?php
 		$attributes_form = array('id' => 'add_category_form','class' => 'form-horizontal');
-		echo form_open('dbcontrol/add_category',$attributes_form);
+		echo form_open('category/add_category',$attributes_form);
 	?>
-	<fieldset class="well" style="margin-top:10px;">
+	<fieldset style="margin-top:10px;">
 		<legend>Add Category</legend>
 		<div class="control-group">
 			<label class="control-label" for="txtCategoryName">Name</label>
