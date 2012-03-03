@@ -1,31 +1,31 @@
 <?php
-class Dashboard extends CI_Controller {
+class Item extends CI_Controller {
 	public function __construct() {
-	
 		parent::__construct();
-        $this->is_logged_in();
+		$this->is_logged_in();
 	}
-
+	
 	function is_logged_in() {
+	// Check if session is live
 		$is_logged_in = $this->session->userdata('is_logged_in');
 		if (!isset($is_logged_in) || $is_logged_in != true) {
 			redirect('start/logout');
 		}
 	}
 	
-	function index() {
-		$this->orders();
-	}
-	
-	function orders() {
+	function add_item_screen() {
 		$data['nav_bar'] = 'template/nav_bar';
-		$data['main_content'] = 'screens/orders_screen';
+		$data['main_content'] = 'screens/item_add_screen';
 		$this->load->view('template/template.php', $data);
 	}
 	
-	function settings() {
+	function remove_item_screen() {
 		$data['nav_bar'] = 'template/nav_bar';
-		$data['main_content'] = 'screens/settings_screen';
+		$data['main_content'] = 'screens/item_remove_screen';
 		$this->load->view('template/template.php', $data);
+	}
+	
+	function add_item() {
+		
 	}
 }

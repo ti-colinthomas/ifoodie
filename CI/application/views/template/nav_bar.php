@@ -34,12 +34,12 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<?php echo base_url(); ?>index.php/dashboard/add_item">
+									<a href="<?php echo base_url(); ?>index.php/item/add_item_screen">
 										Add Menu Items
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url(); ?>index.php/dashboard/remove_item">
+									<a href="<?php echo base_url(); ?>index.php/item/remove_item_screen">
 										Remove Menu Items
 									</a>
 								</li>

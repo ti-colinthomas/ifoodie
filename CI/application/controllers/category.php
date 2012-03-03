@@ -44,7 +44,7 @@ class Category extends CI_Controller {
 				$data['alert_message'] = '	<div class="span11">
 												<div class="alert alert-success">
 													<a class="close" data-dismiss="alert">×</a>
-													New category created successfully
+													New category <strong>\''. $this->input->post('category_name') .'\'</strong> created successfully.
 												</div>
 											</div>';
 				$data['nav_bar'] = 'template/nav_bar';

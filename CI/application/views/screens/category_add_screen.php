@@ -13,17 +13,17 @@
 					$attributes_input = array('name' => 'category_name', 'placeholder' => '' ,'id' => 'txtCategoryName', 'class' => 'input-medium', 'style' => 'height: 30px;');
 					echo form_input($attributes_input);
 				?>
-				<p class="help-block">Enter the name for the new category</p>
+				<p class="help-block">Enter the name for the new category.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="txtCategoryName">Priority</label>
+			<label class="control-label" for="txtCategoryPriority">Priority</label>
 			<div class="controls">
 				<?php
-						$attributes_input = array('name' => 'category_priority', 'placeholder' => '' ,'id' => 'txtCategoryPriority', 'class' => 'input-small', 'style' => 'height: 30px;');
+						$attributes_input = array('name' => 'category_priority', 'placeholder' => '' ,'id' => 'txtCategoryPriority', 'class' => 'input-medium', 'style' => 'height: 30px;');
 						echo form_input($attributes_input);
 				?>
-				<p class="help-block">Enter a numeric value as priority for the new category</p>
+				<p class="help-block">Enter a numeric value as priority for the new category.</p>
 			</div>
 		</div>
 		<div class="control-group error">
