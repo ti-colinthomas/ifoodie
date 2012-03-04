@@ -64,4 +64,5 @@ class Category extends CI_Controller {
 		} else 
 			return TRUE;
 	}
+	
 }

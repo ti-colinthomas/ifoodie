@@ -30,8 +30,7 @@
 				<?php
 						$attributes_input = array(
 													'name' => 'item_description', 
-													'id' => 'txtItemDescription', 
-													'class' => 'input-medium', 
+													'id' => 'txtItemDescription',
 													'rows' => '4', 
 													'cols' => '25',
 												);
@@ -111,13 +110,7 @@
 			<label class="control-label" for="txtItemCatId">Category</label>
 			<div class="controls">
 				<?php
-						$attributes_input = array(
-													'name' => 'item_catid', 
-													'id' => 'txtItemCatId', 
-													'class' => 'input-medium', 
-													'style' => 'height: 30px;',
-												);
-						echo form_input($attributes_input);
+						echo form_dropdown('category',$select_info,'a');
 				?>
 				<p class="help-block">The category that the item belongs to.</p>
 			</div>

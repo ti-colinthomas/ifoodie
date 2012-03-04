@@ -14,6 +14,19 @@ class Item extends CI_Controller {
 	}
 	
 	function add_item_screen() {
+		// Fetching data from category model to display while
+		// selecting category for new dish.
+		$this->load->model('category_model');
+		$q_data = $this->category_model->get_category();
+		$data['select_info'] = array('a'=>'Select category');
+		
+		foreach($q_data as $row) {
+			$key = $row->categoryId;
+			$value = $row->categoryName;
+			
+			$data['select_info'] = array_merge($data['select_info'],array($key=>$value));
+		}
+		
 		$data['nav_bar'] = 'template/nav_bar';
 		$data['main_content'] = 'screens/item_add_screen';
 		$this->load->view('template/template.php', $data);

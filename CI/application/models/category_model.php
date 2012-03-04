@@ -29,4 +29,10 @@ class Category_model extends CI_Model {
 		else
 			return TRUE;
 	}
+	
+	function get_category() {
+		$this->db->select('categoryId, categoryName');
+		$query = $this->db->get('category');
+		return $query->result();
+	}
 }
