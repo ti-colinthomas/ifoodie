@@ -14,11 +14,11 @@
 			<div class="controls">
 				<?php
 					$attributes_input = array(
-												'name' => 'item_name', 
-												'id' => 'txtItemName', 
-												'class' => 'input-medium', 
-												'style' => 'height: 30px;',
-											);
+													'name' => 'item_name', 
+													'id' => 'txtItemName', 
+													'class' => 'input-medium', 
+													'style' => 'height: 30px;',
+												);
 					echo form_input($attributes_input);
 				?>
 				<p class="help-block">Enter the name for the new menu item.</p>
@@ -33,6 +33,7 @@
 													'id' => 'txtItemDescription',
 													'rows' => '4', 
 													'cols' => '25',
+													'value' => set_value('item_description'),
 												);
 						echo form_textarea($attributes_input);
 				?>
@@ -48,6 +49,7 @@
 													'id' => 'txtItemCost', 
 													'class' => 'input-medium', 
 													'style' => 'height: 30px;',
+													'value' => set_value('item_cost'),
 												);
 						echo form_input($attributes_input);
 				?>
@@ -59,7 +61,8 @@
 			<div class="controls">
 				<?php
 						$attributes_input = array(
-													'value' => 'veg', 
+													'name' => 'dish_class',
+													'value' => '1', 
 													'checked' => TRUE, 
 													'style' => 'margin: 8px;',
 												);
@@ -67,8 +70,9 @@
 				?>			Vegetarian
 				<?php
 						$attributes_input = array(
-													'value' => 'nonveg', 
-													'checked' => TRUE, 
+													'name' => 'dish_class',
+													'value' => '0', 
+													'checked' => FALSE, 
 													'style' => 'margin: 8px;',
 												);
 						echo form_radio($attributes_input);
@@ -85,10 +89,11 @@
 													'id' => 'txtItemCookTime', 
 													'class' => 'input-medium', 
 													'style' => 'height: 30px;',
+													'value' => set_value('item_cooktime'),
 												);
 						echo form_input($attributes_input);
 				?>
-				<p class="help-block">Time required to prepare the dish.</p>
+				<p class="help-block">Time required to prepare the dish (in minutes).</p>
 			</div>
 		</div>
 		<div class="control-group">
@@ -100,6 +105,7 @@
 													'id' => 'txtItemCalCount', 
 													'class' => 'input-medium', 
 													'style' => 'height: 30px;',
+													'value' => set_value('item_calcount'),
 												);
 						echo form_input($attributes_input);
 				?>
@@ -110,14 +116,14 @@
 			<label class="control-label" for="txtItemCatId">Category</label>
 			<div class="controls">
 				<?php
-						echo form_dropdown('category',$select_info,'a');
+						echo form_dropdown('item_category',$select_info,'a');
 				?>
 				<p class="help-block">The category that the item belongs to.</p>
 			</div>
 		</div>
 		<div class="control-group error">
 			<div class="controls" style="padding-top:5px;">
-				<?php echo validation_errors('<div class="error help-inline">', '</div>'); ?>
+				<?php echo validation_errors(); ?>
 			</div>
 		</div>
 		<div class="form-actions">

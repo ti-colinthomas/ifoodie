@@ -30,7 +30,7 @@ class Category extends CI_Controller {
 	function add_category() {
 	// Action for the 'Add category' form
 		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<div class="error help-inline">', '</div>');
+		$this->form_validation->set_error_delimiters('<div class="error alert alert-error span4" style="margin-left: 0px;"><a class="close" data-dismiss="alert">×</a>', '</div>');
 		
 		$this->form_validation->set_rules('category_name','Name for new category','trim|required|callback_catname_check');
 		$this->form_validation->set_rules('category_priority','Priority for new category', 'trim|required|integer');

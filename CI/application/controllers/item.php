@@ -39,6 +39,39 @@ class Item extends CI_Controller {
 	}
 	
 	function add_item() {
+		// Action for the 'Add category' form
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error alert alert-error span4" style="margin-left: 0px;"><a class="close" data-dismiss="alert">×</a>', '</div>');
 		
+		$this->form_validation->set_rules('item_name','Name for new item','trim|required|callback_itemname_check');
+		$this->form_validation->set_rules('item_description','description for new item','trim|required');
+		$this->form_validation->set_rules('item_cost','Cost of item','trim|required');
+		$this->form_validation->set_rules('item_cooktime','Cooking time for the dish','trim|required|integer');
+		$this->form_validation->set_rules('item_calcount','Calorie count for the dish','trim|required|integer');
+		$this->form_validation->set_message('numeric', '%s is not selected.');
+		$this->form_validation->set_rules('item_category','Category of item','trim|required|numeric');
+		
+		if ($this->form_validation->run() == FALSE) {
+			$this->add_item_screen();
+		} else {
+			$this->load->model('item_model');
+			$query = $this->item_model->add_item();
+			if ($query) {
+				$data['alert_status'] = 'enabled';
+				$data['alert_message'] = '	<div class="span11">
+												<div class="alert alert-success">
+													<a class="close" data-dismiss="alert">×</a>
+													New dish item <strong>\''. $this->input->post('item_name') .'\'</strong> added successfully.
+												</div>
+											</div>';
+				$data['nav_bar'] = 'template/nav_bar';
+				$data['main_content'] = 'screens/item_add_screen';
+				$this->load->view('template/template.php', $data);
+			}
+		}
+	}
+	
+	function itemname_check() {
+	
 	}
 }

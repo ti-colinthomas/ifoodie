@@ -28,7 +28,7 @@
 		</div>
 		<div class="control-group error">
 			<div class="controls" style="padding-top:5px;">
-				<?php echo validation_errors('<div class="error help-inline">', '</div>'); ?>
+				<?php echo validation_errors(); ?>
 			</div>
 		</div>
 		<div class="form-actions">

@@ -13,7 +13,7 @@ class Category_model extends CI_Model {
 			'priority' => $this->input->post('category_priority')
 		);
 		$query = $this->db->insert('category',$category_info);
-		return TRUE;
+		return $query;
 	}
 	
 	function check_cat_name() {
