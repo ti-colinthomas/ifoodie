@@ -21,6 +21,10 @@ class Category extends CI_Controller {
 	}
 	
 	function remove_category_screen() {
+	// Fetch all categories
+		$this->load->model('category_model');
+		$q_data = $this->category_model->get_category();
+		$data['category_listing'] = $q_data;
 	// Draw the 'Remove category' screen
 		$data['nav_bar'] = 'template/nav_bar';
 		$data['main_content'] = 'screens/category_remove_screen';

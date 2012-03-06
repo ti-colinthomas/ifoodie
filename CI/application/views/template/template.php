@@ -10,6 +10,9 @@
 	if (isset($select_info)) {
 		$data['select_info'] = $select_info;
 	}
+	if (isset($category_listing)) {
+		$data['category_listing'] = $category_listing;
+	}
 	$this->load->view($main_content,$data);
 	$this->load->view('template\footer');
 ?>
