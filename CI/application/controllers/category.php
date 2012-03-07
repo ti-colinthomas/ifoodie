@@ -45,7 +45,7 @@ class Category extends CI_Controller {
 			$query = $this->category_model->add_category();
 			if ($query) {
 				$data['alert_status'] = 'enabled';
-				$data['alert_message'] = '	<div class="span11">
+				$data['alert_message'] = '	<div class="row">
 												<div class="alert alert-success">
 													<a class="close" data-dismiss="alert">×</a>
 													New category <strong>\''. $this->input->post('category_name') .'\'</strong> created successfully.
@@ -55,6 +55,25 @@ class Category extends CI_Controller {
 				$data['main_content'] = 'screens/category_add_screen';
 				$this->load->view('template/template.php', $data);
 			}
+		}
+	}
+	
+	function remove_category() {
+		foreach($this->input->post() as $row) {
+			$this->db->delete('category', array('categoryId' => $row));
+			$this->load->model('category_model');
+			$q_data = $this->category_model->get_category();
+			$data['category_listing'] = $q_data;
+			$data['alert_status'] = 'enabled';
+			$data['alert_message'] = '	<div class="row">
+											<div class="alert alert-success">
+												<a class="close" data-dismiss="alert">×</a>
+												The selected category(s) has been deleted successfully.
+											</div>
+										</div>';
+			$data['nav_bar'] = 'template/nav_bar';
+			$data['main_content'] = 'screens/category_remove_screen';
+			$this->load->view('template/template.php', $data);
 		}
 	}
 	
