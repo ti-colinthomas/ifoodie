@@ -33,6 +33,10 @@ class Item extends CI_Controller {
 	}
 	
 	function remove_item_screen() {
+		$this->load->model('item_model');
+		$q_data = $this->item_model->get_item();
+		$data['item_listing'] = $q_data;
+	
 		$data['nav_bar'] = 'template/nav_bar';
 		$data['main_content'] = 'screens/item_remove_screen';
 		$this->load->view('template/template.php', $data);

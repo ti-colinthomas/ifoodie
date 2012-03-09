@@ -19,4 +19,10 @@ class Item_model extends CI_Model {
 		$query  = $this->db->insert('itemdetails',$item_info);
 		return $query;
 	}
+	
+	function get_item() {
+		$this->db->select('itemId, name, cost');
+		$query = $this->db->get('itemdetails');
+		return $query->result();
+	}
 }

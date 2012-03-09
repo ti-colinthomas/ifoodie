@@ -31,7 +31,7 @@ class Category_model extends CI_Model {
 	}
 	
 	function get_category() {
-		$this->db->select('categoryId, categoryName');
+		$this->db->select('categoryId, categoryName, priority');
 		$query = $this->db->get('category');
 		return $query->result();
 	}

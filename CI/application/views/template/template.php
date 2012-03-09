@@ -13,6 +13,9 @@
 	if (isset($category_listing)) {
 		$data['category_listing'] = $category_listing;
 	}
+	if(isset($item_listing)) {
+		$data['item_listing'] = $item_listing;
+	}
 	$this->load->view($main_content,$data);
 	$this->load->view('template\footer');
 ?>

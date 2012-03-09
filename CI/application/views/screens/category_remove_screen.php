@@ -10,7 +10,7 @@
 			foreach($category_listing as $row) {
 				echo '<div class="alert alert-info">';
 				echo form_checkbox($row->categoryName,$row->categoryId,FALSE);
-				echo '&nbsp;&nbsp;&nbsp;'. $row->categoryName;
+				echo '&nbsp;&nbsp;&nbsp;'. $row->categoryName . '&nbsp;&nbsp;('.$row->priority.')';
 				echo '</div>';
 			}
 		?>
