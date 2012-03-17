@@ -15,7 +15,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`category` (
   PRIMARY KEY (`categoryId`) ,
   UNIQUE INDEX `categoryName_UNIQUE` (`categoryName` ASC) )
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`itemDetails`
@@ -37,7 +37,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemDetails` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`images`
@@ -54,7 +54,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`images` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`ratings`
@@ -72,7 +72,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`ratings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`order`
@@ -85,7 +85,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`order` (
   `totalCost` FLOAT NOT NULL ,
   PRIMARY KEY (`orderId`) )
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`itemOrder`
@@ -111,7 +111,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemOrder` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`masters`
@@ -123,7 +123,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`masters` (
   PRIMARY KEY (`mastersId`) ,
   UNIQUE INDEX `keyname_UNIQUE` (`keyname` ASC) )
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`users`
@@ -138,7 +138,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`users` (
   PRIMARY KEY (`userId`) ,
   UNIQUE INDEX `uname_UNIQUE` (`uname` ASC) )
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`queue`
@@ -155,10 +155,18 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`queue` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+SHOW WARNINGS;
+-- -----------------------------------------------------
+-- Table `ifoodie`.`device`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `ifoodie`.`device` (
+  `deviceIdentifier` VARCHAR(45) NULL ,
+  `tablenumber` VARCHAR(45) NULL ,
+  PRIMARY KEY (`deviceIdentifier`) )
+ENGINE = InnoDB;
+SHOW WARNINGS;
 
 CREATE USER 'db_admin_ifoodie'@'localhost' IDENTIFIED BY 'ifoodiePwds12';
-
 GRANT ALL PRIVILEGES ON * . * TO 'db_admin_ifoodie'@'localhost' IDENTIFIED BY 'ifoodiePwds12' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
 GRANT ALL PRIVILEGES ON `ifoodie` . * TO 'db_admin_ifoodie'@'localhost' WITH GRANT OPTION ;
 

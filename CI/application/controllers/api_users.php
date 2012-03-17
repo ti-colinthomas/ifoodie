@@ -15,11 +15,11 @@ class Api_users extends CI_Controller {
 				echo '<stafflogin failure="0" errorMessage=""></staffLogin>';
 			} else {
 				echo '<?xml version="1.0" encoding="UTF-8"?>';
-				echo '<stafflogin failure="1" errorMessage="Invalid credentials"></staffLogin>';
+				echo '<staffLogin failure="1" errorMessage="Invalid credentials"></staffLogin>';
 			}
 		} else {
 		echo '<?xml version="1.0" encoding="UTF-8"?>';
-		echo '<stafflogin failure="1" errorMessage="Invalid parameters"></staffLogin>';
+		echo '<staffLogin failure="1" errorMessage="Invalid parameters"></staffLogin>';
 		}
 		
 	}
