@@ -73,9 +73,20 @@ class Item extends CI_Controller {
 				$this->load->view('template/template.php', $data);
 			}
 		}
-	}
-	
-	function itemname_check() {
-	
+		
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$this->load->library('upload', $config);
+		
+		$image = "item_icon";
+		$this->upload->do_upload($image);
+		$icon = $this->upload->file_name;
+		
+		$image = "item_image";
+		$this->upload->do_upload($image);
+		$image = $this->upload->file_name;
+		
+		$this->load->model('item_model');
+		$this->item_model->add_item_image($icon, $image);
 	}
 }

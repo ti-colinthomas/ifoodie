@@ -25,4 +25,27 @@ class Item_model extends CI_Model {
 		$query = $this->db->get('itemdetails');
 		return $query->result();
 	}
+	
+	function add_item_image($icon, $image) {
+		$this->db->select('itemId');
+		$this->db->where(array('name' => $this->input->post('item_name'),'description' => $this->input->post('item_description')));
+		$query = $this->db->get('itemdetails');
+		
+		$itemId = $query->row(0)->itemId;
+		print_r($icon . $image);
+		
+		$icon_info = array(
+			'link' => $icon,
+			'itemId' => $itemId,
+			'type' => 'icon'
+		);
+		$image_info = array(
+			'link' => $image,
+			'itemId' => $itemId,
+			'type' => 'image'
+		);
+		
+		$this->db->insert('images',$icon_info);
+		$this->db->insert('images',$image_info);
+	}
 }

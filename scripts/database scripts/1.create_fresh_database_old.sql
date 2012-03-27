@@ -4,18 +4,17 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 CREATE SCHEMA IF NOT EXISTS `ifoodie` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `ifoodie` ;
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`category`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `ifoodie`.`category` (
   `categoryId` INT NOT NULL AUTO_INCREMENT ,
-  `categoryName` TEXT NOT NULL ,
+  `categoryName` VARCHAR(128) NOT NULL ,
   `priority` INT NOT NULL ,
-  PRIMARY KEY (`categoryId`) )
+  PRIMARY KEY (`categoryId`) ,
+  UNIQUE INDEX `categoryName_UNIQUE` (`categoryName` ASC) )
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -26,10 +25,10 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemDetails` (
   `name` TEXT NOT NULL ,
   `description` TEXT NOT NULL ,
   `cost` FLOAT NOT NULL ,
+  `veg` INT NOT NULL,
   `cookingTime` INT NOT NULL ,
   `calorieCount` FLOAT NOT NULL ,
   `categoryId` INT NOT NULL ,
-  `veg` INT NULL ,
   PRIMARY KEY (`itemId`) ,
   INDEX `fk_itemDetails_category` (`categoryId` ASC) ,
   CONSTRAINT `fk_itemDetails_category`
@@ -38,7 +37,6 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemDetails` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -48,7 +46,6 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`images` (
   `imageId` INT NOT NULL AUTO_INCREMENT ,
   `link` TEXT NOT NULL ,
   `itemId` INT NOT NULL ,
-  `type` VARCHAR(6) NULL ,
   PRIMARY KEY (`imageId`) ,
   INDEX `fk_images_itemDetails` (`itemId` ASC) ,
   CONSTRAINT `fk_images_itemDetails`
@@ -57,7 +54,6 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`images` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -76,7 +72,6 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`ratings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -90,7 +85,6 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`order` (
   `totalCost` FLOAT NOT NULL ,
   PRIMARY KEY (`orderId`) )
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -117,7 +111,6 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemOrder` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -125,11 +118,11 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `ifoodie`.`masters` (
   `mastersId` INT NOT NULL AUTO_INCREMENT ,
-  `key` VARCHAR(45) NOT NULL ,
-  `value` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`mastersId`) )
+  `keyname` VARCHAR(45) NOT NULL ,
+  `valuename` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`mastersId`) ,
+  UNIQUE INDEX `keyname_UNIQUE` (`keyname` ASC) )
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -137,14 +130,14 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `ifoodie`.`users` (
   `userId` INT NOT NULL AUTO_INCREMENT ,
-  `uname` TEXT NOT NULL ,
+  `uname` VARCHAR(32) NOT NULL ,
   `password` TEXT NOT NULL ,
   `fName` TEXT NOT NULL ,
   `lName` TEXT NOT NULL ,
   `role` TEXT NOT NULL ,
-  PRIMARY KEY (`userId`) )
+  PRIMARY KEY (`userId`) ,
+  UNIQUE INDEX `uname_UNIQUE` (`uname` ASC) )
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -162,9 +155,7 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`queue` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
-
 -- -----------------------------------------------------
 -- Table `ifoodie`.`device`
 -- -----------------------------------------------------
@@ -173,14 +164,11 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`device` (
   `tablenumber` VARCHAR(45) NULL ,
   PRIMARY KEY (`deviceIdentifier`) )
 ENGINE = InnoDB;
-
 SHOW WARNINGS;
 
 CREATE USER 'db_admin_ifoodie'@'localhost' IDENTIFIED BY 'ifoodiePwds12';
 GRANT ALL PRIVILEGES ON * . * TO 'db_admin_ifoodie'@'localhost' IDENTIFIED BY 'ifoodiePwds12' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
 GRANT ALL PRIVILEGES ON `ifoodie` . * TO 'db_admin_ifoodie'@'localhost' WITH GRANT OPTION ;
-
-SHOW WARNINGS;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -5,7 +5,7 @@
 									'id' => 'add_item_form',
 									'class' => 'form-horizontal',
 								);
-		echo form_open('item/add_item',$attributes_form);
+		echo form_open_multipart('item/add_item',$attributes_form);
 	?>
 	<fieldset style="margin-top:10px;">
 		<legend>Add Menu Item</legend>
@@ -119,6 +119,32 @@
 						echo form_dropdown('item_category',$select_info,'a');
 				?>
 				<p class="help-block">The category that the item belongs to.</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="fileItemIcon">Item icon</label>
+			<div class="controls">
+				<?php
+						$attributes_input = array(
+													'name' => 'item_icon', 
+													'id' => 'fileItemIcon', 
+												);
+						echo form_upload($attributes_input);
+				?>
+				<p class="help-block">Icon for the item.</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="fileItemImage">Item image</label>
+			<div class="controls">
+				<?php
+						$attributes_input = array(
+													'name' => 'item_image', 
+													'id' => 'fileItemImage', 
+												);
+						echo form_upload($attributes_input);
+				?>
+				<p class="help-block">Image for the item.</p>
 			</div>
 		</div>
 		<div class="control-group error">
