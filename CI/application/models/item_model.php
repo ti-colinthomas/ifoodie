@@ -32,7 +32,6 @@ class Item_model extends CI_Model {
 		$query = $this->db->get('itemdetails');
 		
 		$itemId = $query->row(0)->itemId;
-		print_r($icon . $image);
 		
 		$icon_info = array(
 			'link' => $icon,
