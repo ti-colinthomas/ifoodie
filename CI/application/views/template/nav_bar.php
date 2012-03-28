@@ -45,10 +45,28 @@
 								</li>
 							</ul>
 						</li>
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								Tables
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="<?php echo base_url(); ?>index.php/table/add_table_screen">
+										Add Tables
+									</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url(); ?>index.php/table/remove_table_screen">
+										Remove Tables
+									</a>
+								</li>
+							</ul>
+						</li>
 						<li>
 							<a href="<?php echo base_url(); ?>index.php/dashboard/settings">Settings</a>
 						</li>
-						<li class="divider-vertical" style="margin-left: 525px;"></li>
+						<li class="divider-vertical" style="margin-left: 454px;"></li>
 						<li>
 							<a href="<?php echo base_url(); ?>index.php/start/logout">Logout</a>
 						</li>
