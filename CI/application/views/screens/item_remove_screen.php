@@ -9,7 +9,7 @@
 		<?php 
 			foreach($item_listing as $row) {
 				echo '<div class="alert alert-info">';
-				echo form_checkbox($row->itemId,$row->name,FALSE);
+				echo form_checkbox($row->name,$row->itemId,FALSE);
 				echo '&nbsp;&nbsp;&nbsp;'. $row->name . '&nbsp;&nbsp;('.$row->cost.')';
 				echo '</div>';
 			}
@@ -18,7 +18,7 @@
 		<div class="form-actions">
 			<button class="btn btn-danger" type="submit">
 				<i class="icon-trash icon-white"></i> 
-				Remove Category
+				Remove Item
 			</button>
 		</div>
 		

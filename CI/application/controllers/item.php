@@ -96,4 +96,24 @@ class Item extends CI_Controller {
 		$this->load->model('item_model');
 		$this->item_model->add_item_image($icon, $image);
 	}
+	
+	function remove_item() {
+		foreach($this->input->post() as $row) {
+			$this->db->delete('images', array('itemId' => $row));
+			$this->db->delete('itemdetails', array('itemId' => $row));
+			$this->load->model('item_model');
+			$q_data = $this->item_model->get_item();
+			$data['item_listing'] = $q_data;
+			$data['alert_status'] = 'enabled';
+			$data['alert_message'] = '	<div class="row">
+											<div class="alert alert-success">
+												<a class="close" data-dismiss="alert">×</a>
+												The selected item(s) has been deleted successfully.
+											</div>
+										</div>';
+			$data['nav_bar'] = 'template/nav_bar';
+			$data['main_content'] = 'screens/item_remove_screen';
+			$this->load->view('template/template.php', $data);
+		}
+	}
 }
