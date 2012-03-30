@@ -3,7 +3,6 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 CREATE SCHEMA IF NOT EXISTS `ifoodie` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `ifoodie` ;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
@@ -166,12 +165,13 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `ifoodie`.`device`
+-- Table `ifoodie`.`table`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `ifoodie`.`device` (
+CREATE  TABLE IF NOT EXISTS `ifoodie`.`table` (
+  `tableId` INT NOT NULL AUTO_INCREMENT ,
+  `tableName` VARCHAR(45) NOT NULL ,
   `deviceIdentifier` VARCHAR(45) NULL ,
-  `tablenumber` VARCHAR(45) NULL ,
-  PRIMARY KEY (`deviceIdentifier`) )
+  PRIMARY KEY (`tableId`) )
 ENGINE = InnoDB;
 
 SHOW WARNINGS;

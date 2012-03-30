@@ -77,7 +77,7 @@ class Category extends CI_Controller {
 		}
 	}
 	
-	function catname_check($catname) {
+	function catname_check() {
 	// Callback function for validating uniqueness for the categories being added
 		$this->load->model('category_model');
 		$valid = $this->category_model->check_cat_name();
