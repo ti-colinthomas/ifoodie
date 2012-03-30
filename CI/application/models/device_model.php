@@ -13,7 +13,7 @@ class Device_model extends CI_Model {
 		
 		$this->db->where($device_info);
 		// Firing the query
-		$query = $this->db->get('device');
+		$query = $this->db->get('table');
 		if($query->num_rows == 1) {
 			return true;
 		}
@@ -21,12 +21,12 @@ class Device_model extends CI_Model {
 	
 	function get_unique_table() {
 		$device_info = array(
-			'tablenumber' => $this->input->post('tableNo')
+			'tableName' => $this->input->post('tableName')
 		);
 		
 		$this->db->where($device_info);
 		// Firing the query
-		$query = $this->db->get('device');
+		$query = $this->db->get('table');
 		if($query->num_rows == 1) {
 			return true;
 		}
@@ -34,9 +34,9 @@ class Device_model extends CI_Model {
 	
 	function add_device() {
 		$device_info = array(
-			'deviceIdentifier' => $this->input->post('deviceId'),
-			'tablenumber' => $this->input->post('tableNo')
+			'deviceIdentifier' => $this->input->post('deviceId')
 		);
-		$this->db->insert('device', $device_info); 
+		$this->db->where('tableName', $this->input->post('tableName'));
+		$this->db->update('table', $device_info); 
 	}
 }

@@ -8,7 +8,7 @@ class Api_device extends CI_Controller {
 	
 	function device_init() {
 		$this->output->set_content_type('text/xml');
-		if(isset($_POST['deviceId']) && isset($_POST['tableNo'])) {
+		if(isset($_POST['deviceId']) && isset($_POST['tableName'])) {
 			$this->load->model('device_model');
 			$query = $this->device_model->get_unique_device();
 			if(!($query)) {	// check if device is assigned to any table
