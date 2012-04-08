@@ -6,6 +6,7 @@ class Api_category extends CI_Controller {
 	}
 	
 	function index() {
+		
 	}
 	
 	function getcategory() {
@@ -14,4 +15,4 @@ class Api_category extends CI_Controller {
 		$this->output->set_content_type('text/xml');
 		$this->load->view('api/get_category', $q_data);
 	}
-}
+} 
