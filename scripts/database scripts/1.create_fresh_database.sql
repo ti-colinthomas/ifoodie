@@ -29,6 +29,8 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemDetails` (
   `calorieCount` FLOAT NOT NULL ,
   `categoryId` INT NOT NULL ,
   `veg` INT NULL ,
+  `likes` INT NULL DEFAULT 0 ,
+  `dislikes` INT NULL DEFAULT 0 ,
   PRIMARY KEY (`itemId`) ,
   INDEX `fk_itemDetails_category` (`categoryId` ASC) ,
   CONSTRAINT `fk_itemDetails_category`

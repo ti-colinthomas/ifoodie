@@ -11,16 +11,16 @@ VALUES
 'Salads','2'
 );
 
-INSERT INTO `ifoodie`.`category` (categoryId, categoryName, priority)
+INSERT INTO `ifoodie`.`category` (categoryName, priority)
 VALUES
 (
-'33', 'Main Course','3'
+'Main Course','3'
 );
 
-INSERT INTO `ifoodie`.`category` (categoryId, categoryName, priority)
+INSERT INTO `ifoodie`.`category` (categoryName, priority)
 VALUES
 (
-'34', 'Desserts','4'
+'Desserts','4'
 );
 
 

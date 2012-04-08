@@ -21,7 +21,7 @@ class Item_model extends CI_Model {
 	}
 	
 	function get_item() {
-		$this->db->select('itemId, name, cost, veg');
+		$this->db->select('itemId, name, cost, veg, likes, dislikes');
 		$query = $this->db->get('itemdetails');
 		return $query->result();
 	}
