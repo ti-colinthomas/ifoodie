@@ -16,6 +16,13 @@ class Api_item extends CI_Controller {
 		$this->load->view('api/get_item', $q_data);
 	}
 	
+	function getitem_for_category() {
+		$this->load->model('item_model');
+		$q_data['data'] = $this->item_model->get_item_for_category($this->input->post('categoryId'));
+		$this->output->set_content_type('text/xml');
+		$this->load->view('api/get_item', $q_data);
+	}
+	
 	function getitem_icon() {
 		$this->load->model('image_model');
 		$q_data['data'] = $this->image_model->get_icon($this->input->post('itemId'));

@@ -26,6 +26,14 @@ class Item_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_item_for_category($catId) {
+		$this->db->select('itemId, name, cost, veg, likes, dislikes');
+		$query_info = array('categoryId' => $catId);
+		$this->db->where($query_info);
+		$query = $this->db->get('itemdetails');
+		return $query->result();
+	}
+	
 	function add_item_image($icon, $image) {
 		$this->db->select('itemId');
 		$this->db->where(array('name' => $this->input->post('item_name'),'description' => $this->input->post('item_description')));
