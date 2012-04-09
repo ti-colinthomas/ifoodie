@@ -2,7 +2,7 @@
 <menuList failure="0" errorMessage="">
 	<?php
 		foreach ($data as $row) {
-			echo '<menuItem id="'. $row->itemId .'" name="'. $row->name . '" cost="' . $row->cost . '" veg="' . $row->veg . '" likes="' . $row->likes . '" dislikes="' . $row->dislikes . '"></menuItem>';
+			echo '<menuItem id="'. $row->itemId .'" name="'. $row->name . '" description="'. $row->description . '" cost="' . $row->cost . '" veg="' . $row->veg . '" likes="' . $row->likes . '" dislikes="' . $row->dislikes . '"></menuItem>';
 		}
 	?>
 </menuList>

@@ -27,7 +27,7 @@ class Item_model extends CI_Model {
 	}
 	
 	function get_item_for_category($catId) {
-		$this->db->select('itemId, name, cost, veg, likes, dislikes');
+		$this->db->select('itemId, name, description, cost, veg, likes, dislikes');
 		$query_info = array('categoryId' => $catId);
 		$this->db->where($query_info);
 		$query = $this->db->get('itemdetails');
