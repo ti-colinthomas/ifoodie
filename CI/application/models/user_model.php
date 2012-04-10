@@ -20,7 +20,7 @@ class User_model extends CI_Model {
 		$query = $this->db->get('users');
 		// If query has 1 result
 		// User exists & is validated.
-		if($query->num_rows == 1) {
+		if($query->num_rows > 0) {
 			return true;
 		}
 	}
