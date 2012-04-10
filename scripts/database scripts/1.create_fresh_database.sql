@@ -4,6 +4,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 CREATE SCHEMA IF NOT EXISTS `ifoodie` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 SHOW WARNINGS;
+USE `ifoodie` ;
 
 -- -----------------------------------------------------
 -- Table `ifoodie`.`category`
@@ -85,10 +86,12 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `ifoodie`.`order` (
   `orderId` INT NOT NULL AUTO_INCREMENT ,
-  `date` DATE NOT NULL ,
-  `paymentMethod` TEXT NOT NULL ,
+  `date` DATE NULL ,
+  `paymentMethod` TEXT NULL ,
   `discount` FLOAT NULL ,
-  `totalCost` FLOAT NOT NULL ,
+  `totalCost` FLOAT NULL ,
+  `status` VARCHAR(45) NOT NULL ,
+  `deviceId` VARCHAR(90) NOT NULL ,
   PRIMARY KEY (`orderId`) )
 ENGINE = InnoDB;
 

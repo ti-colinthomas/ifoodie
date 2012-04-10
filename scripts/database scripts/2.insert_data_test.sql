@@ -158,11 +158,11 @@ VALUES
 -- Adding order
 INSERT INTO `ifoodie`.`order`
 (
-`date`,`paymentMethod`,`discount`,`totalCost`
+`date`,`paymentMethod`,`discount`,`totalCost`, `status`, `deviceId`
 )
 VALUES
 (
-'2012-02-21','CASH',0,0
+'2012-02-21','CASH',0,0, 'open', 'kjhgsfkjhsdfgkajsgfad'
 );
 
 

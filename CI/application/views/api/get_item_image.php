@@ -2,7 +2,7 @@
 <menuItemIcon failure="0" errorMessage="">
 	<?php
 		foreach ($data as $row) {
-			echo '<ItemImage link="' . $row->link . '"></ItemImage>';
+			echo '<ItemImage link="' . base_url() . 'uploads/' . $row->link . '"></ItemImage>';
 		}
 	?>
 </menuItemIcon>
