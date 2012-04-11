@@ -12,19 +12,15 @@ class Api_order extends CI_Controller {
 		$this->output->set_content_type('text/xml');
 		$this->load->view('api/get_orderinfo', $q_data);
 	}
-
-	function add_to_order() {
+	
+	function add_orderitem() {
 		$this->load->model('order_model');
-		$query = $this->order_model->add_to_order(
-										$this->input->post('deviceId'), 
-										$this->input->post('itemId'), 
-										$this->input->post('instructions'), 
-										$this->input->post('quantity'), 
-										$this->input->post('cost')
-										);
-		if ($query) {
-			echo '<?xml version="1.0" encoding="UTF-8"?>';
-			echo '<order failure="0" errorMessage="Item added successfully"></order>';
+		$query = $this->order_model->add_orderitem();
+		if($query) {
+			$this->output->set_content_type('text/xml');
+			echo '<order failure="0" errorMessage="">';
+				echo '<additem message="Item ordered successfully"></additem>';
+			echo '<order>';
 		}
 	}
 }
