@@ -27,5 +27,25 @@ class Order_model extends CI_Model {
 							'cost' => $this->input->post('cost')
 							);
 		$query = $this->db->insert('itemOrder', $order_item);
-	}	
+	}
+	
+	function close_order() {
+		$this->load->helper('date');			
+		$datestring = "%Y-%m-%d";
+		$time = time();
+	
+		$query = $this->db->query('SELECT SUM(cost) AS totalCost FROM `ifoodie`.`itemorder` where orderId=' . $this->input->post('orderId') . ';');
+		$billCost =  $query->result();
+		$closeOrder = array(
+							'date' => mdate($datestring, $time),
+							'paymentMethod' => 'CASH',
+							'discount' => 0,
+							'totalCost' => $billCost[0]->totalCost,
+							'status' => 'closed'
+							);
+		$this->db->where('orderId',$this->input->post('orderId'));
+		$this->db->update('order', $closeOrder);
+		
+		return $billCost[0]->totalCost;
+	}
 }
