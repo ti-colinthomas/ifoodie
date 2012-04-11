@@ -2,7 +2,7 @@
 <order failure="0" errorMessage="">
 	<?php
 		foreach ($data as $row) {
-			echo '<orderInfo orderid="' . $row->orderId . '"></ItemImage>';
+			echo '<orderInfo orderid="' . $row->orderId . '"></orderInfo>';
 		}
 	?>
 </order>
