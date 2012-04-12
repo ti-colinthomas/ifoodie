@@ -16,13 +16,21 @@ class Api_order extends CI_Controller {
 	function add_orderitem() {
 		$this->load->model('order_model');
 		$query = $this->order_model->add_orderitem();
-		if($query) {
-			$this->output->set_content_type('text/xml');
-			echo '<order failure="0" errorMessage="">';
-				echo '<additem message="Item ordered successfully"></additem>';
-			echo '<order>';
-		}
+		$this->output->set_content_type('text/xml');
+		echo '<order failure="0" errorMessage="">';
+			echo '<additem message="Item ordered successfully"></additem>';
+		echo '<order>';
 	}
+	
+	function remove_orderitem() {
+		$this->load->model('order_model');
+		$this->order_model->remove_orderitem();
+		$this->output->set_content_type('text/xml');
+		echo '<order failure="0" errorMessage="">';
+			echo '<removeitem message="Item ordered successfully"></removeitem>';
+		echo '<order>';
+	}
+	
 	function close_order() {
 		$this->load->model('order_model');
 		$q_data['data'] = $this->order_model->close_order();		

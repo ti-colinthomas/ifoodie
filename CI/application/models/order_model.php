@@ -29,9 +29,16 @@ class Order_model extends CI_Model {
 		$query = $this->db->insert('itemOrder', $order_item);
 	}
 	
+	function remove_orderitem() {
+		$this->db->delete('itemOrder', array(
+											'itemId' => $this->input->post('itemId'),
+											'orderId' => $this->input->post('orderId')
+											));
+	}
+	
 	function close_order() {
 		$this->load->helper('date');			
-		$datestring = "%Y-%m-%d";
+		$datestring = "%Y-%m-%d %h:%i:%a";
 		$time = time();
 	
 		$query = $this->db->query('SELECT SUM(cost) AS totalCost FROM `ifoodie`.`itemorder` where orderId=' . $this->input->post('orderId') . ';');

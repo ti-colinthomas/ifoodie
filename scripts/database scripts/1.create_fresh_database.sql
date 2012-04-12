@@ -129,10 +129,11 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `ifoodie`.`masters` (
   `mastersId` INT NOT NULL AUTO_INCREMENT ,
-  `key` VARCHAR(45) NOT NULL ,
-  `value` VARCHAR(45) NOT NULL ,
+  `masterKey` VARCHAR(45) NOT NULL ,
+  `masterValue` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`mastersId`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB
+COMMENT = '																';
 
 SHOW WARNINGS;
 
