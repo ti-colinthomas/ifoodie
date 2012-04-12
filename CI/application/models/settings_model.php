@@ -14,4 +14,9 @@ class Settings_model extends CI_Model {
 		$query = $this->db->get('masters');
 		return $query->result();
 	}
+	
+	function update_settings() {
+		$this->db->where('masterKey','timeout');
+		$this->db->update('masters', array('masterValue' => $this->input->post('ordercancel_timeout')));
+	}
 }

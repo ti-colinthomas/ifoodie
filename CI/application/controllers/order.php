@@ -14,6 +14,8 @@ class Order extends CI_Controller {
 		}
 	}
 	
+	
+	
 	function show_orderinfo() {
 		$this->load->model('order_model');
 		$q_data = $this->order_model->generate_orderinfo();

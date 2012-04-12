@@ -18,12 +18,22 @@ class Dashboard extends CI_Controller {
 	}
 	
 	function orders() {
+		$this->load->model('order_model');
+		$q_data = $this->order_model->generate_orderinfo();
+		
+		$data['order_listing'] = $q_data;
+	
 		$data['nav_bar'] = 'template/nav_bar';
-		$data['main_content'] = 'screens/orders_screen';
+		$data['main_content'] = 'screens/show_order_screen';
 		$this->load->view('template/template.php', $data);
 	}
 	
 	function settings() {
+		$this->load->model('settings_model');
+		$q_data = $this->settings_model->getOrderTimeout();
+		
+		$data['select_info'] = $q_data;
+	
 		$data['nav_bar'] = 'template/nav_bar';
 		$data['main_content'] = 'screens/settings_screen';
 		$this->load->view('template/template.php', $data);
