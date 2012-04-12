@@ -98,6 +98,18 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
+-- Table `ifoodie`.`table`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `ifoodie`.`table` (
+  `tableId` INT NOT NULL AUTO_INCREMENT ,
+  `tableName` VARCHAR(45) NOT NULL ,
+  `deviceIdentifier` VARCHAR(45) NULL ,
+  PRIMARY KEY (`tableId`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
 -- Table `ifoodie`.`itemOrder`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemOrder` (
@@ -107,9 +119,11 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemOrder` (
   `instructions` TEXT NULL ,
   `quantity` INT NOT NULL DEFAULT 1 ,
   `cost` FLOAT NOT NULL ,
+  `tableId` INT NOT NULL ,
   PRIMARY KEY (`itemOrderId`) ,
   INDEX `fk_itemOrder_itemDetails1` (`itemId` ASC) ,
   INDEX `fk_itemOrder_order1` (`orderId` ASC) ,
+  INDEX `fk_itemOrder_table1` (`tableId` ASC) ,
   CONSTRAINT `fk_itemOrder_itemDetails1`
     FOREIGN KEY (`itemId` )
     REFERENCES `ifoodie`.`itemDetails` (`itemId` )
@@ -118,6 +132,11 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`itemOrder` (
   CONSTRAINT `fk_itemOrder_order1`
     FOREIGN KEY (`orderId` )
     REFERENCES `ifoodie`.`order` (`orderId` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_itemOrder_table1`
+    FOREIGN KEY (`tableId` )
+    REFERENCES `ifoodie`.`table` (`tableId` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -148,36 +167,6 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`users` (
   `lName` TEXT NOT NULL ,
   `role` TEXT NOT NULL ,
   PRIMARY KEY (`userId`) )
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `ifoodie`.`queue`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `ifoodie`.`queue` (
-  `queueId` INT NOT NULL AUTO_INCREMENT ,
-  `itemOrderId` INT NOT NULL ,
-  `eta` INT NULL ,
-  PRIMARY KEY (`queueId`) ,
-  INDEX `fk_queue_itemOrder1` (`itemOrderId` ASC) ,
-  CONSTRAINT `fk_queue_itemOrder1`
-    FOREIGN KEY (`itemOrderId` )
-    REFERENCES `ifoodie`.`itemOrder` (`itemOrderId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `ifoodie`.`table`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `ifoodie`.`table` (
-  `tableId` INT NOT NULL AUTO_INCREMENT ,
-  `tableName` VARCHAR(45) NOT NULL ,
-  `deviceIdentifier` VARCHAR(45) NULL ,
-  PRIMARY KEY (`tableId`) )
 ENGINE = InnoDB;
 
 SHOW WARNINGS;

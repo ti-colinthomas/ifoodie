@@ -165,25 +165,22 @@ VALUES
 '2012-02-21','CASH',0,0, 'open', 'kjhgsfkjhsdfgkajsgfad'
 );
 
+-- Adding table
+INSERT INTO `ifoodie`.`table`
+(
+tableName
+)
+VALUES
+(
+'table 01'
+);
 
 -- Adding itemorder
 INSERT INTO `ifoodie`.`itemorder` 
 (
-itemId, orderId, quantity, cost
+itemId, orderId, quantity, cost, tableId
 )
 VALUES
 (
-3,1, 2,250
-);
-
-
--- Adding queue
-INSERT INTO `ifoodie`.`queue`
-(
-`itemOrderId`,
-`eta`
-)
-VALUES
-(
-1,30
+3,1, 2,250, 1
 );

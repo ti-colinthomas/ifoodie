@@ -56,4 +56,23 @@ class Order_model extends CI_Model {
 		
 		return $billCost[0]->totalCost;
 	}
+	
+	function generate_orderinfo() {
+		$query = $this->db->query('select orderid,sum(quantity) as "totalOrder", t.tablename
+									from `itemorder` as io , `table` as t 
+									where t.tableid = io.tableid
+									group by orderid;'
+								);
+		return $query->result();
+	}
+	
+	function generate_orderdetails() {
+		$query = $this->db->query('select orderid, t.tablename, i.name, i.description, io.quantity, io.instructions, i.cost
+									from `itemorder` as io , `table` as t, `itemdetails` as i
+									where t.tableid = io.tableid and 
+									io.itemid = i.itemid
+									and orderid=' . $this->input->post('orderId') . ';'
+								);
+		return $query->result();
+	}
 }

@@ -5,7 +5,7 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li>
-							<a href="<?php echo base_url(); ?>index.php/dashboard/orders">
+							<a href="<?php echo base_url(); ?>index.php/order/show_orderinfo">
 								Orders
 							</a>
 						</li>

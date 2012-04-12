@@ -16,6 +16,9 @@
 	if(isset($item_listing)) {
 		$data['item_listing'] = $item_listing;
 	}
+	if(isset($order_listing)) {
+		$data['order_listing'] = $order_listing;
+	}
 	$this->load->view($main_content,$data);
 	$this->load->view('template\footer');
 ?>
