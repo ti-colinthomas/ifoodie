@@ -19,7 +19,7 @@ class Api_order extends CI_Controller {
 		$this->output->set_content_type('text/xml');
 		echo '<order failure="0" errorMessage="">';
 			echo '<additem message="Item ordered successfully"></additem>';
-		echo '<order>';
+		echo '</order>';
 	}
 	
 	function remove_orderitem() {
@@ -28,7 +28,7 @@ class Api_order extends CI_Controller {
 		$this->output->set_content_type('text/xml');
 		echo '<order failure="0" errorMessage="">';
 			echo '<removeitem message="Item ordered successfully"></removeitem>';
-		echo '<order>';
+		echo '</order>';
 	}
 	
 	function close_order() {
