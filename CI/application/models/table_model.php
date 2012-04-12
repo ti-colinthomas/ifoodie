@@ -20,4 +20,15 @@ class Table_model extends CI_Model {
 		$query = $this->db->get('table');
 		return $query->result();
 	}
+	
+	function get_tablelist() {
+		$query = $this->db->get('table');
+		return $query->result();
+	}
+	
+	function init_device() {
+		$this->db->where('tableId',$this->input->post('tableId'));
+		$device_info = array('deviceIdentifier' => $this->input->post('deviceId'));
+		$this->db->update('table', $device_info);
+	}
 }
