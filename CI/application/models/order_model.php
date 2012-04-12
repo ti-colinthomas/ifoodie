@@ -24,7 +24,8 @@ class Order_model extends CI_Model {
 							'orderId' => $this->input->post('orderId'),
 							'instructions' => $this->input->post('instructions'),
 							'quantity' => $this->input->post('quantity'),
-							'cost' => $this->input->post('cost')
+							'cost' => $this->input->post('cost'),
+							'tableId' =>$this->input->post('tableId')
 							);
 		$query = $this->db->insert('itemOrder', $order_item);
 	}
