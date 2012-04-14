@@ -37,6 +37,8 @@ class Table extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="error alert alert-error span4" style="margin-left: 0px;"><a class="close" data-dismiss="alert">×</a>', '</div>');
 		
 		$this->form_validation->set_rules('table_name','Name for new table','trim|required');
+		$this->form_validation->set_rules('table_class','Name for new table','trim|required');
+		$this->form_validation->set_rules('table_penalty','Name for new table','trim|required');
 		if ($this->form_validation->run() == FALSE) {
 			$this->add_table_screen();
 		} else {

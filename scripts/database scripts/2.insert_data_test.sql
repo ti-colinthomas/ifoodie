@@ -168,11 +168,11 @@ VALUES
 -- Adding table
 INSERT INTO `ifoodie`.`table`
 (
-tableName
+tableName, class, penalty
 )
 VALUES
 (
-'table 01'
+'table 01', 'AC', 2
 );
 
 -- Adding itemorder

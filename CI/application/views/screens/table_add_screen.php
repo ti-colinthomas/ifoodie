@@ -16,6 +16,26 @@
 				<p class="help-block">Enter name for the new table.</p>
 			</div>
 		</div>
+		<div class="control-group">
+			<label class="control-label" for="txtTableClass">Class</label>
+			<div class="controls">
+				<?php
+					$attributes_input = array('name' => 'table_class', 'placeholder' => '' ,'id' => 'txtTableClass', 'class' => 'input-medium', 'style' => 'height: 30px;');
+					echo form_input($attributes_input);
+				?>
+				<p class="help-block">Enter class for the new table.</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="txtTablePenalty">Penalty</label>
+			<div class="controls">
+				<?php
+					$attributes_input = array('name' => 'table_penalty', 'placeholder' => '' ,'id' => 'txtTablePenalty', 'class' => 'input-medium', 'style' => 'height: 30px;');
+					echo form_input($attributes_input);
+				?> %
+				<p class="help-block">Enter penalty percentage for the table.</p>
+			</div>
+		</div>
 		<div class="control-group error">
 			<div class="controls" style="padding-top:5px;">
 				<?php echo validation_errors(); ?>

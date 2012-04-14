@@ -10,7 +10,7 @@
 			foreach($table_listing as $row) {
 				echo '<div class="alert alert-info">';
 				echo form_checkbox($row->tableName,$row->tableId,FALSE);
-				echo '&nbsp;&nbsp;&nbsp;'. $row->tableName . '&nbsp;&nbsp;&nbsp;'. $row->deviceIdentifier;
+				echo '&nbsp;&nbsp;&nbsp;'. $row->tableName . '&nbsp;&nbsp;&nbsp;('. $row->class . ')';
 				echo '</div>';
 			}
 		?>

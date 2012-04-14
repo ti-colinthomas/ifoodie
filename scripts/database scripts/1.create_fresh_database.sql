@@ -104,6 +104,8 @@ CREATE  TABLE IF NOT EXISTS `ifoodie`.`table` (
   `tableId` INT NOT NULL AUTO_INCREMENT ,
   `tableName` VARCHAR(45) NOT NULL ,
   `deviceIdentifier` VARCHAR(45) NULL ,
+  `class` VARCHAR(45) NULL ,
+  `penalty` FLOAT NULL ,
   PRIMARY KEY (`tableId`) )
 ENGINE = InnoDB;
 

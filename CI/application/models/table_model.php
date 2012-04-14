@@ -9,14 +9,16 @@ class Table_model extends CI_Model {
 	function add_table() {
 	// Add new table to database.
 		$table_info = array(
-			'tableName' => $this->input->post('table_name')
+			'tableName' => $this->input->post('table_name'),
+			'class' => $this->input->post('table_class'),
+			'penalty' => $this->input->post('table_penalty')
 		);
 		$query = $this->db->insert('table',$table_info);
 		return $query;
 	}
 
 	function get_table() {
-		$this->db->select('tableId, tableName, deviceIdentifier');
+		$this->db->select('tableId, tableName, deviceIdentifier, class, penalty');
 		$query = $this->db->get('table');
 		return $query->result();
 	}
