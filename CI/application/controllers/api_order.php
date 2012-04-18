@@ -35,8 +35,16 @@ class Api_order extends CI_Controller {
 		$this->order_model->remove_orderitem();
 		$this->output->set_content_type('text/xml');
 		echo '<order failure="0" errorMessage="">';
-			echo '<removeitem message="Item ordered successfully"></removeitem>';
+			echo '<removeitem message="Item removed successfully"></removeitem>';
 		echo '</order>';
+	}
+	
+	function pre_close() {
+		$this->load->model('order_model');
+		$q_data['data'] = $this->order_model->pre_close();		
+		
+		$this->output->set_content_type('text/xml');
+		$this->load->view('api/pre_close', $q_data);
 	}
 	
 	function close_order() {

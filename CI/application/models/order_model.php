@@ -45,6 +45,13 @@ class Order_model extends CI_Model {
 											));
 	}
 	
+	function pre_close() {
+		$query = $this->db->query('SELECT SUM(cost * quantity) AS totalCost FROM `ifoodie`.`itemorder` where orderId=' . $this->input->post('orderId') . ';');
+		$billCost =  $query->result();
+		return $billCost[0]->totalCost;
+		
+	}
+	
 	function close_order() {
 		$this->load->helper('date');			
 		$datestring = "%Y-%m-%d %h:%i:%a";

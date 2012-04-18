@@ -57,15 +57,11 @@ class Item_model extends CI_Model {
 	}
 	
 	function like() {
-		$like_info = array('likes' => $this->input->post('likes'));
-		$where = array('itemId' => $this->input->post('itemId'));
-		$this->db->update('itemdetails', $like_info);
+		$this->db->query('update `itemdetails` set likes=' . $this->input->post('likes') .' where itemId=' . $this->input->post('itemId') . ';');
 	}
 	
 	
 	function dislike() {
-		$dislike_info = array('dislikes' => $this->input->post('dislikes'));
-		$where = array('itemId' => $this->input->post('itemId'));
-		$this->db->update('itemdetails', $dislike_info);
+		$this->db->query('update `itemdetails` set dislikes=' . $this->input->post('dislikes') .' where itemId=' . $this->input->post('itemId') . ';');
 	}
 }

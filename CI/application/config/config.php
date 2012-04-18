@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://192.168.1.17/ifoodie/CI/';
+$config['base_url']	= 'http://117.204.174.140/ifoodie/CI/';
 
 /*
 |--------------------------------------------------------------------------
