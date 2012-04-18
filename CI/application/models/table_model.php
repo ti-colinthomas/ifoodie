@@ -32,5 +32,12 @@ class Table_model extends CI_Model {
 		$this->db->where('tableId',$this->input->post('tableId'));
 		$device_info = array('deviceIdentifier' => $this->input->post('deviceId'));
 		$this->db->update('table', $device_info);
+		
+		$table_info = array(
+							'deviceIdentifier' => $this->input->post('deviceId')
+							);
+		$this->db->where($table_info);
+		$query = $this->db->get('table');
+		return $query->result();
 	}
 }

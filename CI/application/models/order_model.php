@@ -30,6 +30,14 @@ class Order_model extends CI_Model {
 		$query = $this->db->insert('itemOrder', $order_item);
 	}
 	
+	function get_orderitems() {
+		$query = $this->db->query('select i.name, io.quantity, io.cost, i.veg, i.cookingtime, i.likes, i.dislikes, i.itemid
+								from itemDetails as i, itemOrder as io
+								where i.itemid = io.itemid and io.orderid=' . $this->input->post('orderId') . ';'
+								);
+		return $query->result();
+	}
+	
 	function remove_orderitem() {
 		$this->db->delete('itemOrder', array(
 											'itemId' => $this->input->post('itemId'),

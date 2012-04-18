@@ -22,6 +22,14 @@ class Api_order extends CI_Controller {
 		echo '</order>';
 	}
 	
+	function get_orderitems() {
+		$this->load->model('order_model');
+		$query['data'] = $this->order_model->get_orderitems();
+		
+		$this->output->set_content_type('text/xml');
+		$this->load->view('api/get_orderitems', $query);
+	}
+	
 	function remove_orderitem() {
 		$this->load->model('order_model');
 		$this->order_model->remove_orderitem();
