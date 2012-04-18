@@ -55,4 +55,17 @@ class Item_model extends CI_Model {
 		$this->db->insert('images',$icon_info);
 		$this->db->insert('images',$image_info);
 	}
+	
+	function like() {
+		$like_info = array('likes' => $this->input->post('likes'));
+		$where = array('itemId' => $this->input->post('itemId'));
+		$this->db->update('itemdetails', $like_info);
+	}
+	
+	
+	function dislike() {
+		$dislike_info = array('dislikes' => $this->input->post('dislikes'));
+		$where = array('itemId' => $this->input->post('itemId'));
+		$this->db->update('itemdetails', $dislike_info);
+	}
 }

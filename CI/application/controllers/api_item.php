@@ -30,4 +30,20 @@ class Api_item extends CI_Controller {
 		$this->output->set_content_type('text/xml');
 		$this->load->view('api/get_item_image', $q_data);
 	}
+	
+	function like() {
+		$this->load->model('item_model');
+		$this->item_model->like();
+		
+		$this->output->set_content_type('text/xml');
+		echo '<item failure="0" errorMessage="Rated successfully"></item>';
+	}
+	
+	function dislike() {
+		$this->load->model('item_model');
+		$this->item_model->dislike();
+		
+		$this->output->set_content_type('text/xml');
+		echo '<item failure="0" errorMessage="Rated successfully"></item>';
+	}
 }
