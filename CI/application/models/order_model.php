@@ -73,10 +73,10 @@ class Order_model extends CI_Model {
 	}
 	
 	function generate_orderinfo() {
-		$query = $this->db->query('select orderid,sum(quantity) as "totalOrder", t.tablename
-									from `itemorder` as io , `table` as t 
-									where t.tableid = io.tableid
-									group by orderid;'
+		$query = $this->db->query('select o.orderid,sum(quantity) as "totalOrder", t.tablename
+									from `itemorder` as io , `table` as t, `order` as o
+									where t.tableid = io.tableid and o.status = "open"
+									group by o.orderid;'
 								);
 		return $query->result();
 	}

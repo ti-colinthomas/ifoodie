@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span3 offset2">
 	<!-- Fill in some content here -->
-		Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+		The artistic flavors of Italy come to life inside this culinary art house. Guests can enjoy a lively show kitchen while feasting on fresh pastas, homemade bread, and delicious hand-tossed pizzas. Our outdoor dining area provides a relaxing setting for a perfect meal experience. Share a bottle of premium wine alfresco for a magical journey to the hues, aromas, and flavors of Italy. Whether it’s a quick meeting over a pizza or a romantic encounter over cheesy, saucy pasta, Prego fits all occasions.
 	</div>
 	
 	<!-- Login mechanism goes in here -->
