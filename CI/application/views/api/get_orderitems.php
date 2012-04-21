@@ -2,7 +2,7 @@
 <order failure="0" errorMessage="">
 	<?php
 		foreach ($data as $row) {
-			echo '<orderInfo name="' . $row->name . '" quantity="' . $row->quantity . '" cost="' . $row->cost . '" veg="' . $row->veg . '" cookingtime="' . $row->cookingtime . '" likes="' . $row->likes . '" dislikes="' . $row->dislikes . '" itemid="' . $row->itemid . '"></orderInfo>';
+			echo '<orderInfo name="' . $row->name . '" quantity="' . $row->quantity . '" cost="' . $row->cost . '" veg="' . $row->veg . '" cookingtime="' . $row->cookingtime . '" likes="' . $row->likes . '" dislikes="' . $row->dislikes . '" itemid="' . $row->itemid . '" itemorderid="' . $row->itemorderid . '"></orderInfo>';
 		}
 	?>
 </order>

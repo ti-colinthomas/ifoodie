@@ -31,7 +31,7 @@ class Order_model extends CI_Model {
 	}
 	
 	function get_orderitems() {
-		$query = $this->db->query('select i.name, io.quantity, io.cost, i.veg, i.cookingtime, i.likes, i.dislikes, i.itemid
+		$query = $this->db->query('select i.name, io.quantity, io.cost, i.veg, i.cookingtime, i.likes, i.dislikes, i.itemid, io.itemorderid
 								from itemDetails as i, itemOrder as io
 								where i.itemid = io.itemid and io.orderid=' . $this->input->post('orderId') . ';'
 								);
@@ -40,7 +40,7 @@ class Order_model extends CI_Model {
 	
 	function remove_orderitem() {
 		$this->db->delete('itemOrder', array(
-											'itemId' => $this->input->post('itemId'),
+											'itemOrderId' => $this->input->post('itemId'),
 											'orderId' => $this->input->post('orderId')
 											));
 	}
