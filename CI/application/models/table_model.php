@@ -40,4 +40,14 @@ class Table_model extends CI_Model {
 		$query = $this->db->get('table');
 		return $query->result();
 	}
+	
+	function get_tablestatus() {
+		$query = $this->db->query('SELECT o.status
+						FROM `order` AS o, `itemorder` AS io, `table` AS t
+						WHERE o.orderid=io.orderid AND io.tableid = t.tableid AND t.tableid= ' . $this->input->post('tableId') . '
+						ORDER BY o.orderid DESC LIMIT 1'
+					);
+					
+		return $query->result();	
+	}
 }

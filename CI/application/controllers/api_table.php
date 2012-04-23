@@ -22,4 +22,14 @@ class Api_table extends CI_Controller {
 			echo '<adddevice message="Device initialized"></adddevice>';
 		echo '</masters>';
 	}
+	
+	function get_tablestatus() {
+		$this->load->model('table_model');
+		$data = $this->table_model->get_tablestatus();
+		
+		if($data[0]->status == 'open')
+			echo 'Occupied';
+		else 
+			echo 'Free';
+	}
 }
